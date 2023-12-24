@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtsh=device-width, initial-scale=1.0">
+    <title>Angular Todo APP</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="script.js"></script>
+   
+</head>
+<body >
+    <h1>Welcome to AngularJS Todo-List App</h1>
+    <div class="main" ng-app="myList" ng-controller="myListController">
+        <h1>Todo List</h1>
+        <div class="addItems">
+            <input type="text" ng-model="newItem" placeholder="Add your new todo here"  class="addText">
+            <button ng-click="addItem()">&#10133;
+            </button>
+        </div>
+        <ul>           
+            <li ng-repeat="i in items">
+                <input type="checkbox" ng-model="i.done" />
+                <span ng-class="{ 'completed': i.done }">{{ i.text }}</span> 
+                <span class="del" ng-click="deleteItem($index)">&#10060;</span>
+            </li>
+        </ul>
+    </div>   
+
+</body>
+</html>
